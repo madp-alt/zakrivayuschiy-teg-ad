@@ -7,37 +7,18 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 Если эти классы поменять в HTML, скрипт перестанет работать. Будьте аккуратны.
 */
-document.querySelectorAll('button').forEach(btn => {
-    btn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); });
-});
-
-document.querySelectorAll('.card__like-button, .card__icon-button, .save-button, .modal__button').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-  });
-});
 
 const likeHeartArray = document.querySelectorAll('.like-icon');
 const likeButtonArray = document.querySelectorAll('.card__like-button');
 const iconButtonArray = document.querySelectorAll('.card__icon-button');
 
 iconButtonArray.forEach((iconButton, index) => {
-  iconButton.onclick = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  iconButton.onclick = () =>
     toggleIsLiked(likeHeartArray[index], likeButtonArray[index]);
-    return false;
-  };
 });
 
 likeButtonArray.forEach((button, index) => {
-  button.onclick = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    toggleIsLiked(likeHeartArray[index], button);
-    return false;
-  };
+  button.onclick = () => toggleIsLiked(likeHeartArray[index], button);
 });
 
 function toggleIsLiked(heart, button) {
