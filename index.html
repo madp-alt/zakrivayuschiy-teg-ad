@@ -565,18 +565,16 @@
   </div>
 
   <dialog id="save-dialog" class="modal">
-    <form method="dialog">
-      <div class="modal__content">
+    <div class="modal__content">
         <svg class="modal__icon" width="38" height="38" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M4 2h14v2H4v16h2v-6h12v6h2V6h2v16H2V2h2zm4 18h8v-4H8v4zM20 6h-2V4h2v2zM6 6h9v4H6V6z"/>
+            <path d="M4 2h14v2H4v16h2v-6h12v6h2V6h2v16H2V2h2zm4 18h8v-4H8v4zM20 6h-2V4h2v2zM6 6h9v4H6V6z"/>
         </svg>
         <p class="modal__text">Вставьте дискету, чтобы продолжить</p>
-      </div>
-      <button type="button" class="button modal__button" onclick="document.getElementById('save-dialog').close(); return false;">
+    </div>
+    <button type="button" class="button modal__button" onclick="document.getElementById('save-dialog').close(); return false;">
         <span class="button__text">Ок</span>
-      </button>
-    </form>
-  </dialog>
+    </button>
+</dialog>
 </main>
 
 <script src="./scripts/like.js"></script>
