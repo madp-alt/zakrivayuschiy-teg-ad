@@ -252,8 +252,8 @@
         </div>
       </article>
     </main>
-                <footer class="footer">
-      <button class="button save-button" type="button" onclick="document.getElementById('dialog').showModal(); return false;"> 
+       <footer class="footer">
+      <button class="button save-button" type="button" id="saveButton"> 
         <svg class="floppy" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
           <path d="M4 2h14v2H4v16h2v-6h12v6h2V6h2v16H2V2h2zm4 18h8v-4H8v4zM20 6h-2V4h2v2zM6 6h9v4H6V6z"/>
         </svg>
@@ -267,9 +267,21 @@
           <path d="M4 2h14v2H4v16h2v-6h12v6h2V6h2v16H2V2h2zm4 18h8v-4H8v4zM20 6h-2V4h2v2zM6 6h9v4H6V6z"/>
         </svg>
         <h2 class="modal__title">Вставьте дискету, чтобы продолжить</h2>
-        <button type="button" class="button save-button modal__button" onclick="document.getElementById('dialog').close(); return false;">
+        <button type="button" class="button save-button modal__button" id="closeButton">
           <span class="button__text">Ок</span>          
         </button>
       </dialog>
     </footer>
     <script src="./scripts/like.js"></script>
+    <script>
+      document.getElementById('saveButton').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('dialog').showModal();
+      });
+      document.getElementById('closeButton').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('dialog').close();
+      });
+    </script>
+  </body>
+</html>
