@@ -1,44 +1,22 @@
+/* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
-  --font: 'Inter-Variable';
-  --font-accent: 'PressStart2P-Regular';
-  --main-font-size: 1.125rem;
-  --accent-font-size: 0.875rem;
-  --floppy-size: 21px;
-  --modal-padding-inline: 30px;
-  --card-inline-size: clamp(min(100%, 375px), 50vw, 700px);
-  --main-color: #000000;
-  --bg-color: #FFFFFF;
-  --heart-hover: #000000;
-  --button-text-color: #FFFFFF;
-  --heart-contour: #000000;
-  --card-font-weight: 400;
-  --card-title-font-weight: 700;
-  
-  --bg-image: 
-    repeating-linear-gradient(
-      to right, 
-      #d3d3d3 0px,
-      #d3d3d3 2px,
-      transparent 2px,
-      transparent 4px
-    ), 
-    repeating-linear-gradient(
-      to bottom, 
-      #d3d3d3 0px,
-      #d3d3d3 2px,
-      transparent 2px,
-      transparent 4px
-    ),
-    linear-gradient(
-      to bottom,
-      #e7e7e7 0.01%,
-      #1a1a1a
-    );
-}
+    --font-main: Inter-Varible;
+    --font-accent: PressStart2P;
 
-@media (width <= 375px) {
-  :root {
-    --floppy-size: 28px;
-    --modal-padding-inline: 40px;
-  }
+    --bg-color: #fff;
+    --hover-button-text-color: #fff;
+    --text-color: #000;
+    --accent-color: #000;
+    --animation-color: red;
+
+    --base-weight: 400;
+    --heading-weight: 700;
+
+    --border: 2px solid #000;
+    
+    --text-stroke-color: rgb(255 255 255 / 0.5);
+    --core-fill-color: transparent;
+    --contour-fill-color: #000;
+    --main-body-fill-color: transparent;
+    --sparks-fill-color: red;
 }
