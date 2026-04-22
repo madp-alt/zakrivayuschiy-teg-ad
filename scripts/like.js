@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const textSpan = button.querySelector('.button__text');
     if (!textSpan) return;
     
-    if ([...heart.classList].includes('is-liked')) {
+    if (heart.classList.contains('is-liked')) {
       setTimeout(() => {
         if (textSpan) textSpan.textContent = 'Unlike';
       }, 500);
