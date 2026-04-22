@@ -155,6 +155,13 @@ body {
   mix-blend-mode: hard-light;
 }
 
+@supports ((text-stroke: 1px var(--text-stroke-color, rgb(255 255 255 / 0.5))) or (-webkit-text-stroke: 1px var(--text-stroke-color, rgb(255 255 255 / 0.5)))) {
+  .img-text {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--text-stroke-color, rgb(255 255 255 / 0.5));
+    text-stroke: 1px var(--text-stroke-color, rgb(255 255 255 / 0.5));
+  }
+}
 .card__like-button {
   inline-size: 130px;
   block-size: 38px;
