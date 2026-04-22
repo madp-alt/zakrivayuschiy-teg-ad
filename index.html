@@ -252,8 +252,8 @@
         </div>
       </article>
     </main>
-    <footer class="footer">
-      <button class="button save-button" type="button" id="saveButton" aria-controls="dialog"> 
+        <footer class="footer">
+      <button class="button save-button" type="button" aria-controls="dialog"> 
         <svg class="floppy" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
           <path d="M4 2h14v2H4v16h2v-6h12v6h2V6h2v16H2V2h2zm4 18h8v-4H8v4zM20 6h-2V4h2v2zM6 6h9v4H6V6z"/>
         </svg>
@@ -267,7 +267,7 @@
           <path d="M4 2h14v2H4v16h2v-6h12v6h2V6h2v16H2V2h2zm4 18h8v-4H8v4zM20 6h-2V4h2v2zM6 6h9v4H6V6z"/>
         </svg>
         <h2 class="modal__title">Вставьте дискету, чтобы продолжить</h2>
-        <button type="button" class="button save-button modal__button" id="closeDialogButton">
+        <button type="button" class="button save-button modal__button">
           <span class="button__text">Ок</span>          
         </button>
       </dialog>
@@ -275,30 +275,44 @@
     <script src="./scripts/like.js"></script>
     <script>
       (function() {
-        const dialog = document.getElementById('dialog');
-        const saveButton = document.getElementById('saveButton');
-        const closeButton = document.getElementById('closeDialogButton');
+        // Ждём загрузки DOM
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init);
+        } else {
+          init();
+        }
         
-        if (saveButton) {
-          saveButton.addEventListener('click', function(event) {
-            event.preventDefault();
-            if (dialog) {
+        function init() {
+          const dialog = document.getElementById('dialog');
+          const saveButton = document.querySelector('.save-button');
+          const modalButton = document.querySelector('.modal__button');
+          
+          if (saveButton && dialog) {
+            // Удаляем все существующие обработчики
+            const newSaveButton = saveButton.cloneNode(true);
+            saveButton.parentNode.replaceChild(newSaveButton, saveButton);
+            
+            newSaveButton.addEventListener('click', function(event) {
+              event.preventDefault();
+              event.stopPropagation();
               dialog.showModal();
-            }
-          });
+              return false;
+            });
+          }
+          
+          if (modalButton && dialog) {
+            // Удаляем все существующие обработчики
+            const newModalButton = modalButton.cloneNode(true);
+            modalButton.parentNode.replaceChild(newModalButton, modalButton);
+            
+            newModalButton.addEventListener('click', function(event) {
+              event.preventDefault();
+              event.stopPropagation();
+              dialog.close();
+              return false;
+            });
+          }
         }
-        
-        if (closeButton && dialog) {
-          closeButton.addEventListener('click', function(event) {
-            event.preventDefault();
-            dialog.close();
-          });
-        }
-        document.querySelectorAll('.card__like-button, .card__icon-button').forEach(button => {
-          button.addEventListener('click', function(event) {
-            event.preventDefault();
-          });
-        });
       })();
     </script>
   </body>
