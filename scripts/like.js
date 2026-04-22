@@ -7,6 +7,10 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 Если эти классы поменять в HTML, скрипт перестанет работать. Будьте аккуратны.
 */
+document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); });
+});
+
 document.querySelectorAll('.card__like-button, .card__icon-button, .save-button, .modal__button').forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
